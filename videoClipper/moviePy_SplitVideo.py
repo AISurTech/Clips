@@ -46,7 +46,8 @@ def clippingFromListOfTimes(videoFilePath, timeList, startsAtZeroSeconds=True, o
 
       clip = clip.subclip(startsecond, endSecond) 
 
-      clip.write_videofile(f"outClips/{outName}{unixTimestamp}clip_{startsecond}to{endSecond}seconds.mp4")
+      clip.write_videofile(f"videoClipper/outClips/{outName}{unixTimestamp}clip_{startsecond}to{endSecond}seconds.mp4")
       print(f"SUCCESS - clipped at for timestamp {startsecond}to{endSecond}seconds")
-    except:
+    except Exception as e:
       print(f"Nothing left to clip at interval {i}")
+      print(f"Error: {e}")

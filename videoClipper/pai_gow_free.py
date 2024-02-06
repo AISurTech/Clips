@@ -9,360 +9,189 @@ from moviePy_SplitVideo import *
 # We have a note that is 3rd
 # And we make the outname "Fee_CAP_1_3rd_" because it is the first CAP event and the note is 3rd
 
-# List of events: 
-# 11:37	3rd          CAP 
-# 11:39	2nd         PINCH 
-# 11:39	1st          PINCH 
-# 11:39	3rd          CAP 
-# 11:41	1st          CAP 
-# 11;42	1st          CAP 
-# 11:41	2nd         CAP 
-# 11:45	2nd         PINCH 
-# 11:47	2nd         CAP 
-# HANDS & BODIES OVER CIRCLES 
-# 11:50	3rd          CAP 
-# 11:50	2nd         CAP 
-# 11:51	2nd         CAP 
-# 11:51	1st          PINCH 
-# 11:52	COLLUSION DEALER PUSHED 3RD ON TIE 
-# 11:53	1st          PINCH 
-# 11:53	3rd          PINCH 
-# 11:55	1st          CAP 
-# 11:56	2nd         CAP 
-# 11:56	1st          CAP 
-# 11:57	3rd          CAP 
-# 11:57	3rd          PINCH 
-# 11:58	COLLUSION DEALER PUSHED 2ND ON TIE 
-# 12:01	2nd         CAP 
-# 12:01	3rd          CAP 
-# 12:02 	1st	CAP 
-# 12:04	2nd         CAP 
-# 12:06	1st          CAP 
-# 12:07	2nd         CAP 
-# 12:08	3rd          CAP 
-# 12:09	DEALER DIDN’T TAKE TIP 
-# 12:09	3rd          PINCH 
-# 12:09	1ST         CAP 
-# 12:10	3rd          CAP 
-# 12:11	2nd         CAP 
-# 12:15 DEALER CLEARING HANDS CHECKS PHONE 
-# 12:15 1ST 	PINCH 
-# 12:15 COLLUSION DEALER PUSHED 2ND ON TIE 
-# 12: 16 1st 	CAP 
-# 12:16	DEALER CLEARING HANDS SCRATCHING FACE 
-# 12:17	1ST	CAP 
-# 12:17	DEALER CLEARING HANDS SCRATCHING FACE 
-# 12:17 1ST 	CAP 
-# 12:17	DEALER NOT CLEARING HANDS CHECKED POCKET 
-# 12:18	DEALER CLEARED HANDS AFTER CHECKED POCKET 
-# 12:18	2ND 	PINCH 
-# 12:18	2ND	CAP 
-# 12:19	3RD	PINCH 
-# 12:19	2ND	CAP 
-# 12:21	1ST	CAP 
-# 12:22	2ND	CAP 
+# List of Free Play events starting at 11:36 
+# Time      Note        Type
+# 11:36:55	3rd          CAP 
+# 11:39:03	2nd         PINCH 
+# 11:39:13	1st          PINCH	        (Extra note, not to include: LATE PINCH WITH DEALER LOOKING! )
+# 11:39:36	3rd          CAP 
+# 11:41:10	1st          CAP 
+# 11:42:16	1st          CAP 
+# 11:42:18	2nd         CAP 
+# 11:45:46	2nd         PINCH 
+# 11:47:49	2nd         CAP 
+# START OF HANDS & BODIES OVER CIRCLES – NOT CHEATING BUT SHOULD BE CALLED OUT BY DEALER – USE AS FASLE POSITIVES 
+# 11:49:51	3rd          CAP 
+# 11:49:59	2nd         CAP 
+# 11:51:22	2nd         CAP 
+# 11:51:43	1st          PINCH 
+# 11:51:57	3rd         COLLUSION           (Extra note, not to include: COLLUSION DEALER PUSHED 3RD ON TIE (check card values) )
+# 11:53:	1st          PINCH (can’t find) 
+# 11:53:33	3rd          PINCH 
+# 11:55:	1st          CAP (can’t find) 
+# 11:55:51	2nd         CAP 
+# 11:56:09	1st          CAP 
+# 11:56:49	3rd          CAP 
+# 11:57:27	3rd          PINCH 
+# 11:58:25	2nd          COLLUSION                        (Extra note, can't include: COLLUSION DEALER PUSHED 2ND ON TIE 
+# 12:01:04	2nd         CAP 
+# 12:01:40	3rd          CAP 
+# 12:02:14 	1st	          CAP 
+# 12:04:08	2nd         CAP 
+# 12:05:20	2nd 	       CAP 
+# 12:05:55	1st          CAP                    (Extra note, can't include: dealer got pushed from behind) 
+# 12:07:02	2nd         CAP 
+# 12:08:00	3rd          CAP 
+# 12:09:08	3rd	          NOTIP                 (Extra Note:  DEALER DIDN’T TAKE TIP GAVE BACK TO PLAYER) 
+# 12:09:46	3rd          PINCH 
+# 12:09:50	1ST         CAP 
+# 12:10:32	3rd          CAP 
+# 12:11:33	2nd         CAP                     (Extra Note: (LEFT SPLIT ONLY) 
+# 12:15:05	Dealer      CHECKPHONE                          DEALER CLEARING HANDS CHECKS PHONE 
+# 12:15:33	 1st 	    PINCH 
+# 12:15:37	 2nd        COLLUSION                       DEALER PUSHED 2ND ON TIE 
+# 12:16:03 1st 	        CAP 
+# 12:16:10	Dealer      SCRATCHFACE                 DEALER CLEARING HANDS SCRATCHING FACE 
+# 12:16:29	DEALER      CLEARHANDS                  CLEARING HANDS 
+# 12:17:20	1ST	        FORM_DROP_LOWER_VALUE_CHIP_CAP      (Extra Note: CAP (MAKE NOTE OF HIS FORM HERE, FLIPPING AND DROPPING A LOWER VALUE CHIP) 
+# 12:17:37 	DEALER      TOUCHSHIRT                  DEALER TOUCHES LEFT SHIRT DID NOT CLEAR HANDS 
+# 12:17:50	DEALER      SCRATCHFACE                 CLEARING HANDS SCRATCHING FACE 
+# 12:17		 1ST 	     CAP (CAN’T FIND) 
+# 12:17		DEALER       CHECKPOCKET                   NOT CLEARING HANDS CHECKED POCKET 
+# 12:18:12	DEALER       CLEARHANDS                    CLEARED HANDS AFTER CHECKED POCKET 
+# 12:18:14	2ND 	       PINCH 
+# 12:18:33	2ND	            CAP 
+# 12:19:26	3RD	        PINCH 
+# 12:19:34	2ND	        CAP 
+# 12:19:44	1ST	        CAP 
+# 12:21:42	1ST	        CAP 
+# 12:21:55	2ND	        CAP 
+# END OF FREE PLAY
 
-# Here is the code for these events:
 
-# First cap occurs at 11:37
-timeList = [60*11+37 - 3, 60*11 + 37 + 3]
-note = "3rd"
-clippingFromListOfTimes(videoFilePath= r"videoClipper/2024_02_01_Pai_Gow_Original_Videos/FREE Pai Gow 2024-02-01_11_35_22_789.mp4",
-                        timeList=timeList, startsAtZeroSeconds=False, outName="Free_CAP_1" + "_" + note + "_")
+# Time is given in min:sec:cs.
+# Format is ("time", "note", "type")
+event_list = [("11:36:55", "3rd", "CAP"),
+                ("11:39:03", "2nd", "PINCH"),
+                ("11:39:13", "1st", "PINCH"),
+                ("11:39:36", "3rd", "CAP"),
+                ("11:41:10", "1st", "CAP"),
+                ("11:42:16", "1st", "CAP"),
+                ("11:42:18", "2nd", "CAP"),
+                ("11:45:46", "2nd", "PINCH"),
+                ("11:47:49", "2nd", "CAP"),
+                ("11:49:51", "3rd", "CAP"),
+                ("11:49:59", "2nd", "CAP"),
+                ("11:51:22", "2nd", "CAP"),
+                ("11:51:43", "1st", "PINCH"),
+                ("11:51:57", "3rd", "COLLUSION"),
+                ("11:53:00", "1st", "CANTFIND_PINCH"),
+                ("11:53:33", "3rd", "PINCH"),
+                ("11:55:00", "1st", "CANTFIND_CAP"),
+                ("11:55:51", "2nd", "CAP"),
+                ("11:56:09", "1st", "CAP"),
+                ("11:56:49", "3rd", "CAP"),
+                ("11:57:27", "3rd", "PINCH"),
+                ("11:58:25", "2nd", "COLLUSION"),
+                ("12:01:04", "2nd", "CAP"),
+                ("12:01:40", "3rd", "CAP"),
+                ("12:02:14", "1st", "CAP"),
+                ("12:04:08", "2nd", "CAP"),
+                ("12:05:20", "2nd", "CAP"),
+                ("12:05:55", "1st", "CAP"),
+                ("12:07:02", "2nd", "CAP"),
+                ("12:08:00", "3rd", "CAP"),
+                ("12:09:08", "3rd", "NOTIP"),
+                ("12:09:46", "3rd", "PINCH"),
+                ("12:09:50", "1st", "CAP"),
+                ("12:10:32", "3rd", "CAP"),
+                ("12:11:33", "2nd", "CAP"),
+                ("12:15:05", "Dealer", "CHECKPHONE"),
+                ("12:15:33", "1st", "PINCH"),
+                ("12:15:37", "2nd", "COLLUSION"),
+                ("12:16:03", "1st", "CAP"),
+                ("12:16:10", "Dealer", "SCRATCHFACE"),
+                ("12:16:29", "DEALER", "CLEARHANDS"),
+                ("12:17:20", "1st", "FORM_DROP_LOWER_VALUE_CHIP_CAP"),
+                ("12:17:37", "DEALER", "TOUCHSHIRT"),
+                ("12:17:50", "DEALER", "SCRATCHFACE"),
+                ("12:17:00", "1st", "CANTFIND_CAP"),
+                ("12:17:00", "DEALER", "CHECKPOCKET"),
+                ("12:18:12", "DEALER", "CLEARHANDS"),
+                ("12:18:14", "2nd", "PINCH"),
+                ("12:18:33", "2nd", "CAP"),
+                ("12:19:26", "3rd", "PINCH"),
+                ("12:19:34", "2nd", "CAP"),
+                ("12:19:44", "1st", "CAP"),
+                ("12:21:42", "1st", "CAP"),
+                ("12:21:55", "2nd", "CAP")]
 
-# First pinch occurs at 11:39
-timeList = [60*11+39 - 3, 60*11 + 39 + 3]
-note = "2nd"
-clippingFromListOfTimes(videoFilePath= r"videoClipper/2024_02_01_Pai_Gow_Original_Videos/FREE Pai Gow 2024-02-01_11_35_22_789.mp4",
-                        timeList=timeList, startsAtZeroSeconds=False, outName="Free_PINCH_1" + "_" + note + "_")
 
-# Second pinch occurs at 11:39
-timeList = [60*11+39 - 3, 60*11 + 39 + 3]
-note = "1st"
-clippingFromListOfTimes(videoFilePath= r"videoClipper/2024_02_01_Pai_Gow_Original_Videos/FREE Pai Gow 2024-02-01_11_35_22_789.mp4",
-                        timeList=timeList, startsAtZeroSeconds=False, outName="Free_PINCH_2" + "_" + note + "_")
+# We parse through the event list and populate the converted_event_list
+# We also keep track of a counter for each type of event
+converted_event_list = []
+counters = {}
+for event in event_list:
+    time = event[0].split(":")
+    time = [int(x) for x in time]
+    timeList = (60*time[0] + time[1] + time[2]/100 - 3, 60*time[0] + time[1] + time[2]/100 + 3)
+    if event[1] not in counters:
+        counters[event[1]] = 1
+    else:
+        counters[event[1]] += 1
+    converted_event_list.append((timeList, event[1], event[2], counters[event[1]]))
 
-# Second cap occurs at 11:39
-timeList = [60*11+39 - 3, 60*11 + 39 + 3]
-note = "3rd"
-clippingFromListOfTimes(videoFilePath= r"videoClipper/2024_02_01_Pai_Gow_Original_Videos/FREE Pai Gow 2024-02-01_11_35_22_789.mp4",
-                        timeList=timeList, startsAtZeroSeconds=False, outName="Free_CAP_2" + "_" + note + "_")
 
-# Third cap occurs at 11:41
-timeList = [60*11+41 - 3, 60*11 + 41 + 3]
-note = "1st"
-clippingFromListOfTimes(videoFilePath= r"videoClipper/2024_02_01_Pai_Gow_Original_Videos/FREE Pai Gow 2024-02-01_11_35_22_789.mp4",
-                        timeList=timeList, startsAtZeroSeconds=False, outName="Free_CAP_3" + "_" + note + "_")
 
-# Fourth cap occurs at 11:42
-timeList = [60*11+42 - 3, 60*11 + 42 + 3]
-note = "1st"
-clippingFromListOfTimes(videoFilePath= r"videoClipper/2024_02_01_Pai_Gow_Original_Videos/FREE Pai Gow 2024-02-01_11_35_22_789.mp4",
-                        timeList=timeList, startsAtZeroSeconds=False, outName="Free_CAP_4" + "_" + note + "_")
 
-# Fifth cap occurs at 11:41
-timeList = [60*11+41 - 3, 60*11 + 41 + 3]
-note = "2nd"
-clippingFromListOfTimes(videoFilePath= r"videoClipper/2024_02_01_Pai_Gow_Original_Videos/FREE Pai Gow 2024-02-01_11_35_22_789.mp4",
-                        timeList=timeList, startsAtZeroSeconds=False, outName="Free_CAP_5" + "_" + note + "_")
 
-# Third pinch occurs at 11:45
-timeList = [60*11+45 - 3, 60*11 + 45 + 3]
-note = "2nd"
-clippingFromListOfTimes(videoFilePath= r"videoClipper/2024_02_01_Pai_Gow_Original_Videos/FREE Pai Gow 2024-02-01_11_35_22_789.mp4",
-                        timeList=timeList, startsAtZeroSeconds=False, outName="Free_PINCH_3" + "_" + note + "_")
+# Now, our converted_event_list looks like:
+# [([starttime, endtime], "type", "note", counter)]
 
-# Sixth cap occurs at 11:47
-timeList = [60*11+47 - 3, 60*11 + 47 + 3]
-note = "2nd"
-clippingFromListOfTimes(videoFilePath= r"videoClipper/2024_02_01_Pai_Gow_Original_Videos/FREE Pai Gow 2024-02-01_11_35_22_789.mp4",
-                        timeList=timeList, startsAtZeroSeconds=False, outName="Free_CAP_6" + "_" + note + "_")
+# Now, we clip the video using the converted_event_list
 
-# Seventh cap occurs at 11:50
-timeList = [60*11+50 - 3, 60*11 + 50 + 3]
-note = "3rd"
-clippingFromListOfTimes(videoFilePath= r"videoClipper/2024_02_01_Pai_Gow_Original_Videos/FREE Pai Gow 2024-02-01_11_35_22_789.mp4",
-                        timeList=timeList, startsAtZeroSeconds=False, outName="Free_CAP_7" + "_" + note + "_")
+videoFilePath = r"videoClipper\2024_02_01_Pai_Gow_Original_Videos\FREE Pai Gow 2024-02-01_11_35_22_789.mp4"
+for event in converted_event_list:
+    outName = "Free_" + event[1] + "_" + str(event[3]) + "_Note=" + event[2] + "_"
+    clippingFromListOfTimes(videoFilePath=videoFilePath, timeList=event[0], startsAtZeroSeconds=False, outName=outName)
 
-# Eighth cap occurs at 11:50
-timeList = [60*11+50 - 3, 60*11 + 50 + 3]
-note = "2nd"
-clippingFromListOfTimes(videoFilePath= r"videoClipper/2024_02_01_Pai_Gow_Original_Videos/FREE Pai Gow 2024-02-01_11_35_22_789.mp4",
-                        timeList=timeList, startsAtZeroSeconds=False, outName="Free_CAP_8" + "_" + note + "_")
 
-# Ninth cap occurs at 11:51
-timeList = [60*11+51 - 3, 60*11 + 51 + 3]
-note = "2nd"
-clippingFromListOfTimes(videoFilePath= r"videoClipper/2024_02_01_Pai_Gow_Original_Videos/FREE Pai Gow 2024-02-01_11_35_22_789.mp4",
-                        timeList=timeList, startsAtZeroSeconds=False, outName="Free_CAP_9" + "_" + note + "_")
 
-# Fourth pinch occurs at 11:51
-timeList = [60*11+51 - 3, 60*11 + 51 + 3]
-note = "1st"
-clippingFromListOfTimes(videoFilePath= r"videoClipper/2024_02_01_Pai_Gow_Original_Videos/FREE Pai Gow 2024-02-01_11_35_22_789.mp4",
-                        timeList=timeList, startsAtZeroSeconds=False, outName="Free_PINCH_4" + "_" + note + "_")
 
-# First Collusion occurs at 11:52
-timeList = [60*11+52 - 3, 60*11 + 52 + 3]
-note = "3rd"
-clippingFromListOfTimes(videoFilePath= r"videoClipper/2024_02_01_Pai_Gow_Original_Videos/FREE Pai Gow 2024-02-01_11_35_22_789.mp4",
-                        timeList=timeList, startsAtZeroSeconds=False, outName="Free_COLL_1" + "_" + note + "_")
 
-# Fifth pinch occurs at 11:53
-timeList = [60*11+53 - 3, 60*11 + 53 + 3]
-note = "1st"
-clippingFromListOfTimes(videoFilePath= r"videoClipper/2024_02_01_Pai_Gow_Original_Videos/FREE Pai Gow 2024-02-01_11_35_22_789.mp4",
-                        timeList=timeList, startsAtZeroSeconds=False, outName="Free_PINCH_5" + "_" + note + "_")
 
-# Sixth pinch occurs at 11:53
-timeList = [60*11+53 - 3, 60*11 + 53 + 3]
-note = "3rd"
-clippingFromListOfTimes(videoFilePath= r"videoClipper/2024_02_01_Pai_Gow_Original_Videos/FREE Pai Gow 2024-02-01_11_35_22_789.mp4",
-                        timeList=timeList, startsAtZeroSeconds=False, outName="Free_PINCH_6" + "_" + note + "_")
 
-# Tenth cap occurs at 11:55
-timeList = [60*11+55 - 3, 60*11 + 55 + 3]
-note = "1st"
-clippingFromListOfTimes(videoFilePath= r"videoClipper/2024_02_01_Pai_Gow_Original_Videos/FREE Pai Gow 2024-02-01_11_35_22_789.mp4",
-                        timeList=timeList, startsAtZeroSeconds=False, outName="Free_CAP_10" + "_" + note + "_")
 
-# Eleventh cap occurs at 11:56
-timeList = [60*11+56 - 3, 60*11 + 56 + 3]
-note = "2nd"
-clippingFromListOfTimes(videoFilePath= r"videoClipper/2024_02_01_Pai_Gow_Original_Videos/FREE Pai Gow 2024-02-01_11_35_22_789.mp4",
-                        timeList=timeList, startsAtZeroSeconds=False, outName="Free_CAP_11" + "_" + note + "_")
 
-# Twelfth cap occurs at 11:56
-timeList = [60*11+56 - 3, 60*11 + 56 + 3]
-note = "1st"
-clippingFromListOfTimes(videoFilePath= r"videoClipper/2024_02_01_Pai_Gow_Original_Videos/FREE Pai Gow 2024-02-01_11_35_22_789.mp4",
-                        timeList=timeList, startsAtZeroSeconds=False, outName="Free_CAP_12" + "_" + note + "_")
 
-# Thirteenth cap occurs at 11:57
-timeList = [60*11+57 - 3, 60*11 + 57 + 3]
-note = "3rd"
-clippingFromListOfTimes(videoFilePath= r"videoClipper/2024_02_01_Pai_Gow_Original_Videos/FREE Pai Gow 2024-02-01_11_35_22_789.mp4",
-                        timeList=timeList, startsAtZeroSeconds=False, outName="Free_CAP_13" + "_" + note + "_")
 
-# Seventh pinch occurs at 11:57
-timeList = [60*11+57 - 3, 60*11 + 57 + 3]
-note = "3rd"
-clippingFromListOfTimes(videoFilePath= r"videoClipper/2024_02_01_Pai_Gow_Original_Videos/FREE Pai Gow 2024-02-01_11_35_22_789.mp4",
-                        timeList=timeList, startsAtZeroSeconds=False, outName="Free_PINCH_7" + "_" + note + "_")
 
-# Second Collusion occurs at 11:58
-timeList = [60*11+58 - 3, 60*11 + 58 + 3]
-note = "2nd"
-clippingFromListOfTimes(videoFilePath= r"videoClipper/2024_02_01_Pai_Gow_Original_Videos/FREE Pai Gow 2024-02-01_11_35_22_789.mp4",
-                        timeList=timeList, startsAtZeroSeconds=False, outName="Free_COLL_2" + "_" + note + "_")
 
-# Fourteenth cap occurs at 12:01
-timeList = [60*12+1 - 3, 60*12 + 1 + 3]
-note = "2nd"
-clippingFromListOfTimes(videoFilePath= r"videoClipper/2024_02_01_Pai_Gow_Original_Videos/FREE Pai Gow 2024-02-01_11_35_22_789.mp4",
-                        timeList=timeList, startsAtZeroSeconds=False, outName="Free_CAP_14" + "_" + note + "_")
 
-# Fifteenth cap occurs at 12:01
-timeList = [60*12+1 - 3, 60*12 + 1 + 3]
-note = "3rd"
-clippingFromListOfTimes(videoFilePath= r"videoClipper/2024_02_01_Pai_Gow_Original_Videos/FREE Pai Gow 2024-02-01_11_35_22_789.mp4",
-                        timeList=timeList, startsAtZeroSeconds=False, outName="Free_CAP_15" + "_" + note + "_")
 
-# Sixteenth cap occurs at 12:02
-timeList = [60*12+2 - 3, 60*12 + 2 + 3]
-note = "1st"
-clippingFromListOfTimes(videoFilePath= r"videoClipper/2024_02_01_Pai_Gow_Original_Videos/FREE Pai Gow 2024-02-01_11_35_22_789.mp4",
-                        timeList=timeList, startsAtZeroSeconds=False, outName="Free_CAP_16" + "_" + note + "_")
 
-# Seventeenth cap occurs at 12:04
-timeList = [60*12+4 - 3, 60*12 + 4 + 3]
-note = "2nd"
-clippingFromListOfTimes(videoFilePath= r"videoClipper/2024_02_01_Pai_Gow_Original_Videos/FREE Pai Gow 2024-02-01_11_35_22_789.mp4",
-                        timeList=timeList, startsAtZeroSeconds=False, outName="Free_CAP_17" + "_" + note + "_")
 
-# Eighteenth cap occurs at 12:06
-timeList = [60*12+6 - 3, 60*12 + 6 + 3]
-note = "1st"
-clippingFromListOfTimes(videoFilePath= r"videoClipper/2024_02_01_Pai_Gow_Original_Videos/FREE Pai Gow 2024-02-01_11_35_22_789.mp4",
-                        timeList=timeList, startsAtZeroSeconds=False, outName="Free_CAP_18" + "_" + note + "_")
 
-# Nineteenth cap occurs at 12:07
-timeList = [60*12+7 - 3, 60*12 + 7 + 3]
-note = "2nd"
-clippingFromListOfTimes(videoFilePath= r"videoClipper/2024_02_01_Pai_Gow_Original_Videos/FREE Pai Gow 2024-02-01_11_35_22_789.mp4",
-                        timeList=timeList, startsAtZeroSeconds=False, outName="Free_CAP_19" + "_" + note + "_")
 
-# Twentieth cap occurs at 12:08
-timeList = [60*12+8 - 3, 60*12 + 8 + 3]
-note = "3rd"
-clippingFromListOfTimes(videoFilePath= r"videoClipper/2024_02_01_Pai_Gow_Original_Videos/FREE Pai Gow 2024-02-01_11_35_22_789.mp4",
-                        timeList=timeList, startsAtZeroSeconds=False, outName="Free_CAP_20" + "_" + note + "_")
 
-# Dealer didn't take tip at 12:09
-timeList = [60*12+9 - 3, 60*12 + 9 + 3]
-note = "DEALER DIDNT TAKE TIP"
-clippingFromListOfTimes(videoFilePath= r"videoClipper/2024_02_01_Pai_Gow_Original_Videos/FREE Pai Gow 2024-02-01_11_35_22_789.mp4",
-                        timeList=timeList, startsAtZeroSeconds=False, outName="Free_DEALER_DIDNT_TAKE_TIP" + "_" + note + "_")
 
-# Eighth pinch occurs at 12:09
-timeList = [60*12+9 - 3, 60*12 + 9 + 3]
-note = "3rd"
-clippingFromListOfTimes(videoFilePath= r"videoClipper/2024_02_01_Pai_Gow_Original_Videos/FREE Pai Gow 2024-02-01_11_35_22_789.mp4",
-                        timeList=timeList, startsAtZeroSeconds=False, outName="Free_PINCH_8" + "_" + note + "_")
 
-# Twenty first cap occurs at 12:09
-timeList = [60*12+9 - 3, 60*12 + 9 + 3]
-note = "1st"
-clippingFromListOfTimes(videoFilePath= r"videoClipper/2024_02_01_Pai_Gow_Original_Videos/FREE Pai Gow 2024-02-01_11_35_22_789.mp4",
-                        timeList=timeList, startsAtZeroSeconds=False, outName="Free_CAP_21" + "_" + note + "_")
 
-# Twenty second cap occurs at 12:10
-timeList = [60*12+10 - 3, 60*12 + 10 + 3]
-note = "3rd"
-clippingFromListOfTimes(videoFilePath= r"videoClipper/2024_02_01_Pai_Gow_Original_Videos/FREE Pai Gow 2024-02-01_11_35_22_789.mp4",
-                        timeList=timeList, startsAtZeroSeconds=False, outName="Free_CAP_22" + "_" + note + "_")
 
-# Twenty third cap occurs at 12:11
-timeList = [60*12+11 - 3, 60*12 + 11 + 3]
-note = "2nd"
-clippingFromListOfTimes(videoFilePath= r"videoClipper/2024_02_01_Pai_Gow_Original_Videos/FREE Pai Gow 2024-02-01_11_35_22_789.mp4",
-                        timeList=timeList, startsAtZeroSeconds=False, outName="Free_CAP_23" + "_" + note + "_")
 
-# Dealer clearing hands checks phone at 12:15
-timeList = [60*12+15 - 3, 60*12 + 15 + 3]
-note = "DEALER CLEARING HANDS CHECKS PHONE"
-clippingFromListOfTimes(videoFilePath= r"videoClipper/2024_02_01_Pai_Gow_Original_Videos/FREE Pai Gow 2024-02-01_11_35_22_789.mp4",
-                        timeList=timeList, startsAtZeroSeconds=False, outName="Free_DEALER_CLEARING_HANDS_CHECKS_PHONE" + "_" + note + "_")
 
-# Ninth pinch occurs at 12:15
-timeList = [60*12+15 - 3, 60*12 + 15 + 3]
-note = "1st"
-clippingFromListOfTimes(videoFilePath= r"videoClipper/2024_02_01_Pai_Gow_Original_Videos/FREE Pai Gow 2024-02-01_11_35_22_789.mp4",
-                        timeList=timeList, startsAtZeroSeconds=False, outName="Free_PINCH_9" + "_" + note + "_")
 
-# Third Collusion occurs at 12:15
-timeList = [60*12+15 - 3, 60*12 + 15 + 3]
-note = "2nd" 
-clippingFromListOfTimes(videoFilePath= r"videoClipper/2024_02_01_Pai_Gow_Original_Videos/FREE Pai Gow 2024-02-01_11_35_22_789.mp4",
-                        timeList=timeList, startsAtZeroSeconds=False, outName="Free_COLL_3" + "_" + note + "_")
 
-# Twenty fourth cap occurs at 12:16
-timeList = [60*12+16 - 3, 60*12 + 16 + 3]
-note = "1st"
-clippingFromListOfTimes(videoFilePath= r"videoClipper/2024_02_01_Pai_Gow_Original_Videos/FREE Pai Gow 2024-02-01_11_35_22_789.mp4",
-                        timeList=timeList, startsAtZeroSeconds=False, outName="Free_CAP_24" + "_" + note + "_")
 
-# Dealer clearing hands scratching face at 12:16
-timeList = [60*12+16 - 3, 60*12 + 16 + 3]
-note = "dealer"
-clippingFromListOfTimes(videoFilePath= r"videoClipper/2024_02_01_Pai_Gow_Original_Videos/FREE Pai Gow 2024-02-01_11_35_22_789.mp4",
-                        timeList=timeList, startsAtZeroSeconds=False, outName="Free_Scratch" + "_" + note + "_")
 
-# Twenty fifth cap occurs at 12:17
-timeList = [60*12+17 - 3, 60*12 + 17 + 3]
-note = "1st"
-clippingFromListOfTimes(videoFilePath= r"videoClipper/2024_02_01_Pai_Gow_Original_Videos/FREE Pai Gow 2024-02-01_11_35_22_789.mp4",
-                        timeList=timeList, startsAtZeroSeconds=False, outName="Free_CAP_25" + "_" + note + "_")
 
-# Dealer clearing hands scratching face at 12:17
-timeList = [60*12+17 - 3, 60*12 + 17 + 3]
-note = "dealer"
-clippingFromListOfTimes(videoFilePath= r"videoClipper/2024_02_01_Pai_Gow_Original_Videos/FREE Pai Gow 2024-02-01_11_35_22_789.mp4",
-                        timeList=timeList, startsAtZeroSeconds=False, outName="Free_Scratch" + "_" + note + "_")
 
-# Twenty sixth cap occurs at 12:17
-timeList = [60*12+17 - 3, 60*12 + 17 + 3]
-note = "1st"
-clippingFromListOfTimes(videoFilePath= r"videoClipper/2024_02_01_Pai_Gow_Original_Videos/FREE Pai Gow 2024-02-01_11_35_22_789.mp4",
-                        timeList=timeList, startsAtZeroSeconds=False, outName="Free_CAP_26" + "_" + note + "_")
 
-# Dealer not clearing hands checked pocket at 12:17
-timeList = [60*12+17 - 3, 60*12 + 17 + 3]
-note = "not_clear"
-clippingFromListOfTimes(videoFilePath= r"videoClipper/2024_02_01_Pai_Gow_Original_Videos/FREE Pai Gow 2024-02-01_11_35_22_789.mp4",
-                        timeList=timeList, startsAtZeroSeconds=False, outName="Free_Check_Pocket" + "_" + note + "_")
 
-# Dealer cleared hands after checked pocket at 12:18
-timeList = [60*12+18 - 3, 60*12 + 18 + 3]
-note = "clear"
-clippingFromListOfTimes(videoFilePath= r"videoClipper/2024_02_01_Pai_Gow_Original_Videos/FREE Pai Gow 2024-02-01_11_35_22_789.mp4",
-                        timeList=timeList, startsAtZeroSeconds=False, outName="Free_Clear_Pocket" + "_" + note + "_")
 
-# Tenth pinch occurs at 12:18
-timeList = [60*12+18 - 3, 60*12 + 18 + 3]
-note = "2nd"
-clippingFromListOfTimes(videoFilePath= r"videoClipper/2024_02_01_Pai_Gow_Original_Videos/FREE Pai Gow 2024-02-01_11_35_22_789.mp4",
-                        timeList=timeList, startsAtZeroSeconds=False, outName="Free_PINCH_10" + "_" + note + "_")
 
-# Twenty seventh cap occurs at 12:18
-timeList = [60*12+18 - 3, 60*12 + 18 + 3]
-note = "2nd"
-clippingFromListOfTimes(videoFilePath= r"videoClipper/2024_02_01_Pai_Gow_Original_Videos/FREE Pai Gow 2024-02-01_11_35_22_789.mp4",
-                        timeList=timeList, startsAtZeroSeconds=False, outName="Free_CAP_27" + "_" + note + "_")
 
-# Eleventh pinch occurs at 12:19
-timeList = [60*12+19 - 3, 60*12 + 19 + 3]
-note = "3rd"
-clippingFromListOfTimes(videoFilePath= r"videoClipper/2024_02_01_Pai_Gow_Original_Videos/FREE Pai Gow 2024-02-01_11_35_22_789.mp4",
-                        timeList=timeList, startsAtZeroSeconds=False, outName="Free_PINCH_11" + "_" + note + "_")
 
-# Twenty eighth cap occurs at 12:19
-timeList = [60*12+19 - 3, 60*12 + 19 + 3]
-note = "2nd"
-clippingFromListOfTimes(videoFilePath= r"videoClipper/2024_02_01_Pai_Gow_Original_Videos/FREE Pai Gow 2024-02-01_11_35_22_789.mp4",
-                        timeList=timeList, startsAtZeroSeconds=False, outName="Free_CAP_28" + "_" + note + "_")
-
-# Twenty ninth cap occurs at 12:21
-timeList = [60*12+21 - 3, 60*12 + 21 + 3]
-note = "1st"
-clippingFromListOfTimes(videoFilePath= r"videoClipper/2024_02_01_Pai_Gow_Original_Videos/FREE Pai Gow 2024-02-01_11_35_22_789.mp4",
-                        timeList=timeList, startsAtZeroSeconds=False, outName="Free_CAP_29" + "_" + note + "_")
-
-# Thirtieth cap occurs at 12:22
-timeList = [60*12+22 - 3, 60*12 + 22 + 3]
-note = "2nd"
-clippingFromListOfTimes(videoFilePath= r"videoClipper/2024_02_01_Pai_Gow_Original_Videos/FREE Pai Gow 2024-02-01_11_35_22_789.mp4",
-                        timeList=timeList, startsAtZeroSeconds=False, outName="Free_CAP_30" + "_" + note + "_")
 
 
 

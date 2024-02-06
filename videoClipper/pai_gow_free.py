@@ -126,24 +126,30 @@ event_list = [("11:36:55", "3rd", "CAP"),
                 ("12:21:42", "1st", "CAP"),
                 ("12:21:55", "2nd", "CAP")]
 
+# Next, we parse through each event and convert the time into a timelist with respect to the beginning of the video
+# The times in the tuple above are in the format hh:mm:ss, but it is not with respect to the beginning of the video
+# The beginning of the free video is at 11:35:16  
+video_start_time = "11:35:16"
+video_start_time = video_start_time.split(":")
+video_start_time_seconds = 60*60*int(video_start_time[0]) + 60*int(video_start_time[1]) + int(video_start_time[2])
+
 
 # We parse through the event list and populate the converted_event_list
 # We also keep track of a counter for each type of event
 converted_event_list = []
 counters = {}
 for event in event_list:
+    # We calculate the time of the event in seconds, and then we subtract the start time of the video
+    # That is the time of the event with respect to the beginning of the video
     time = event[0].split(":")
     time = [int(x) for x in time]
-    timeList = (60*time[0] + time[1] + time[2]/100 - 3, 60*time[0] + time[1] + time[2]/100 + 3)
-    if event[1] not in counters:
-        counters[event[1]] = 1
+    time_respect_to_video = 60*60*time[0] + 60*time[1] + time[2] - video_start_time_seconds
+    timeList = (time_respect_to_video - 3, time_respect_to_video + 3)
+    if event[2] not in counters:
+        counters[event[2]] = 1
     else:
-        counters[event[1]] += 1
-    converted_event_list.append((timeList, event[1], event[2], counters[event[1]]))
-
-
-
-
+        counters[event[2]] += 1
+    converted_event_list.append((timeList, event[1], event[2], counters[event[2]]))
 
 # Now, our converted_event_list looks like:
 # [([starttime, endtime], "type", "note", counter)]
@@ -152,7 +158,7 @@ for event in event_list:
 
 videoFilePath = r"videoClipper\2024_02_01_Pai_Gow_Original_Videos\FREE Pai Gow 2024-02-01_11_35_22_789.mp4"
 for event in converted_event_list:
-    outName = "Free_" + event[1] + "_" + str(event[3]) + "_Note=" + event[2] + "_"
+    outName = "Free_" + event[2] + "_" + str(event[3]) + "_Note=" + event[1] + "_"
     clippingFromListOfTimes(videoFilePath=videoFilePath, timeList=event[0], startsAtZeroSeconds=False, outName=outName)
 
 
